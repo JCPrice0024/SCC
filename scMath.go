@@ -70,6 +70,9 @@ func NumBreaker2(num int) ([]int, error) {
 	return numBreak, nil
 }
 
+// NumBreaker takes an integer and breaks it into it's places (hundreds|tens|ones) it takes up to the max value of an int.
+// It returns the numbers in 1|2|3 form as opposed to 100|20|3
+// It returns an error if and only if the inputted number becomes or is negative.
 func NumBreaker3(num int) ([]int, error) {
 	var numBreak []int
 	if num < 0 {
