@@ -179,3 +179,32 @@ func createNumString(n []int, m map[int]string) string {
 	}
 	return str.String()
 }
+
+// BinarySearch takes an int and an array of sorted ints and finds x by comparing the midpoints of the array.
+// It goes left if x is less than our midpoint and right if it's greater. It has O(log(n)) time complexity.
+func BinarySearch(x int, nums []int) int {
+	low := 0
+	high := len(nums)
+	mid := 0
+	for low != high {
+		mid = (low + high) / 2
+		if nums[mid] == x {
+			return mid
+		}
+		if nums[mid] > x {
+			high = mid - 1
+			continue
+		}
+		if nums[mid] < x {
+			low = mid + 1
+			continue
+		}
+	}
+	if low == high {
+		return high
+	}
+	if mid == len(nums)-1 && nums[mid] != x {
+		return -1
+	}
+	return mid
+}
